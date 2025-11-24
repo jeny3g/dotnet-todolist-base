@@ -19,10 +19,10 @@ logger.Debug("init main");
 
 try
 {
+    EnvConstants.ValidateRequiredEnvs();
 
     var builder = WebApplication.CreateBuilder(args);
 
-    //EnvConstants.ValidateRequiredEnvs();
 
     //builder.Services.AddControllers(options =>
     //{
