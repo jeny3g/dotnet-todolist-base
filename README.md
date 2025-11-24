@@ -1,76 +1,58 @@
-# Banco de Dados (PostgreSQL)
+# üöÄ TODO.Service.Api - Backend
 
-Este projeto utiliza o PostgreSQL 15 rodando em um container Docker.
-Abaixo est„o as instruÁıes para execuÁ„o, conex„o e configuraÁ„o.
+Este √© o projeto backend da aplica√ß√£o ToDo, constru√≠do com .NET e utilizando PostgreSQL como banco de dados.
 
-=========================================
-1. CREDENCIAIS DE ACESSO
-=========================================
-Host:           localhost
-Porta:          5432
-Database:       todo
-User:           user
-Password:       password
-Container Name: todo-db
+## üß± Arquitetura e Tecnologias
 
-=========================================
-2. COMANDOS R¡PIDOS
-=========================================
 
-# Iniciar o banco (em background):
+| Componente | Tecnologia | Localiza√ß√£o |
+| :--- | :--- | :--- |
+| **API** | .NET (C#) | `./TODO.Service.Api` |
+| **Database (DB)** | PostgreSQL 15 | `./db` |
+| **Orquestra√ß√£o** | Docker Compose | `./db/docker-compose.yml` |
+
+---
+
+## ‚úÖ Pr√©-Requisitos
+
+Para rodar este projeto localmente, voc√™ precisar√° ter instalado:
+
+1.  **[.NET SDK (8.0+ ou superior)](https://dotnet.microsoft.com/download)**
+2.  **Docker Desktop** (Com o Engine rodando)
+
+---
+
+## ‚öôÔ∏è Configura√ß√£o Inicial
+
+Antes de rodar, garanta que suas depend√™ncias estejam prontas.
+
+1.  **Restaura√ß√£o de Pacotes .NET:**
+    V√° para a pasta da API e restaure os pacotes NuGet:
+    ```bash
+    cd TODO.Service.Api
+    dotnet restore
+    ```
+2.  **Verifica√ß√£o da String de Conex√£o:**
+    Confirme que o arquivo `./TODO.Service.Api/appsettings.json` cont√©m a string de conex√£o correta para o Docker:
+    ```json
+    "ConnectionStrings": {
+      "DefaultConnection": "Host=localhost;Port=5432;Database=todo;Username=user;Password=password;"
+    }
+    ```
+
+---
+
+## ‚ñ∂Ô∏è Como Rodar o Projeto
+
+Voc√™ precisa iniciar o banco de dados e depois a API.
+
+### Passo 1: Iniciar o Database (PostgreSQL)
+
+Execute este comando na raiz do projeto (onde est√° o `README.md`):
+
+```bash
+# Entra na pasta do DB
+cd db/
+
+# Inicia o container em modo 'detached' (-d)
 docker compose up -d
-
-# Parar o banco:
-docker compose down
-
-# ATEN«√O: Resetar o banco (Apagar todos os dados):
-# Use este comando se quiser limpar o banco e rodar os scripts de inicializaÁ„o novamente.
-docker compose down -v
-
-=========================================
-3. COMO CONECTAR
-=========================================
-
-A) NA APLICA«√O .NET (appsettings.json)
-Configure sua Connection String no arquivo de configuraÁ„o da API:
-
-"ConnectionStrings": {
-  "DefaultConnection": "Host=localhost;Port=5432;Database=todo;Username=user;Password=password;"
-}
-
-B) VIA FERRAMENTA VISUAL (DBeaver, PgAdmin, Datagrip)
-Ao criar uma nova conex„o PostgreSQL, utilize:
-- Host: localhost
-- Port: 5432
-- Database: todo
-- Username: user
-- Password: password
-
-C) VIA TERMINAL (Acesso Direto ao Container)
-Para acessar o SQL shell (psql) diretamente de dentro do container:
-
-docker exec -it todo-db psql -U user -d todo
-
-(Para sair do psql, digite \q e pressione Enter)
-
-=========================================
-4. SCRIPTS INICIAIS (SEEDS)
-=========================================
-
-A pasta ./scripts È mapeada para o container.
-
-- Qualquer arquivo .sql colocado nesta pasta ser· executado AUTOMATICAMENTE
-  quando o container for criado pela PRIMEIRA VEZ.
-- Ordem de execuÁ„o: AlfabÈtica (ex: 01_tabelas.sql, 02_dados.sql).
-
-NOTA: Se vocÍ adicionar um script novo DEPOIS que o banco j· foi criado, 
-ele N√O rodar· automaticamente. VocÍ precisar· rodar o comando de reset 
-(docker compose down -v) ou executar o SQL manualmente.
-
-=========================================
-5. PERSIST NCIA DE DADOS
-=========================================
-
-Os dados s„o salvos em um volume Docker chamado 'db_data'. 
-Isso garante que, mesmo se vocÍ desligar o computador ou parar o container, 
-seus dados n„o ser„o perdidos.
