@@ -9,6 +9,6 @@
   </Folder>
   <Folder Name="/src/2 - Infrastructure/">
     <Project Path="src/TODO.Service.CrossCutting/Todo.Service.CrossCutting/Todo.Service.CrossCutting.csproj" Id="7515c994-c0bf-4a81-acc7-e3e16bf2fed1" />
-    <Project Path="src/TODO.Service.Persistence/TODO.Service.Persistence/TODO.Service.Persistence.csproj" DisplayName="Todo.Service.Persistence" Id="6e74f74c-307a-4acb-a7ee-7dde702c3e3c" />
+    <Project Path="src/TODO.Service.Persistence/TODO.Service.Persistence/TODO.Service.Persistence.csproj" Id="6e74f74c-307a-4acb-a7ee-7dde702c3e3c" DisplayName="Todo.Service.Persistence" />
   </Folder>
 </Solution>
