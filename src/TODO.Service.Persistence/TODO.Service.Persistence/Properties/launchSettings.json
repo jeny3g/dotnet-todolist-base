@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "TODO.Service.Persistence": {
+      "commandName": "Project"
+    },
+    "TODO.Service.Api": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\WS\\backend-dotnet\\backend-dotnet\\src\\TODO.Service.Api"
+    }
+  }
+}

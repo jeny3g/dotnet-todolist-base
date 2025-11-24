@@ -1,0 +1,35 @@
+{
+  "profiles": {
+    "Local": { 
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "launchUrl": "swagger/index.html",
+      "applicationUrl": "https://localhost:7199;http://localhost:5199",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DATABASE_CONNECTION_STRING": "Server=localhost;Port=5432;Database=todo;User Id=user;Password=password;",
+        "ASPNETCORE_URLS": "https://localhost:7199;http://localhost:5199"
+      }
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "swagger/index.html",
+      "applicationUrl": "https://localhost:44363;http://localhost:58413",
+      "environmentVariables": {
+        "DATABASE_CONNECTION_STRING": "Server=localhost;Port=5432;Database=todo;User Id=user;Password=password;",
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "sslPort": 44363
+    }
+  },
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:58413/",
+      "sslPort": 44363
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/0 - Presentation/">
+    <Project Path="src/TODO.Service.Api/Todo.Service.Api.csproj" />
+  </Folder>
+  <Folder Name="/src/1 - Core/">
+    <Project Path="src/TODO.Service.Application/Todo.Service.Application/Todo.Service.Application.csproj" Id="d8fb90ed-c7a3-4cf6-a523-2c5baf0dd4fd" />
+    <Project Path="src/TODO.Service.Domain/Todo.Service.Domain/Todo.Service.Domain.csproj" Id="a7f09ba2-9bcb-4c95-aafa-29c75978c206" />
+  </Folder>
+  <Folder Name="/src/2 - Infrastructure/">
+    <Project Path="src/TODO.Service.CrossCutting/Todo.Service.CrossCutting/Todo.Service.CrossCutting.csproj" Id="7515c994-c0bf-4a81-acc7-e3e16bf2fed1" />
+    <Project Path="src/TODO.Service.Persistence/TODO.Service.Persistence/TODO.Service.Persistence.csproj" DisplayName="Todo.Service.Persistence" Id="6e74f74c-307a-4acb-a7ee-7dde702c3e3c" />
+  </Folder>
+</Solution>

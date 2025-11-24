@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:15
+    container_name: todo-db
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: todo
+    ports:
+      - "5432:5432"
+    volumes:
+      # Persiste os dados para não perder ao reiniciar
+      - db_data:/var/lib/postgresql/data
+      # Executa scripts SQL automaticamente na primeira vez (criação de tabelas/seeds)
+      - ./scripts:/docker-entrypoint-initdb.d/
+    healthcheck:
+      # Verifica se o banco está pronto para receber conexões
+      test: ["CMD-SHELL", "pg_isready -U user -d todo"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  db_data:
